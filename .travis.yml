@@ -1,4 +1,5 @@
 language: c
+sudo:required
 
 os:
   - linux
@@ -15,6 +16,15 @@ addons:
       - check
 
 script:
+  - git clone https://github.com/libcheck/check.git 
+  - cd check 
+  - autoreconf -i -v -f
+  - ./configure
+  - make -j24
+  - sudo make install
+  - sudo ldconfig
+  - cd ..
+
   - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then brew update ; fi
   - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then brew install check; fi
   - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then sed 's/check_pic/check/g' tests/Makefile.am | sed 's/-lrt//g' > tests/Makefile.am.tmp; fi
