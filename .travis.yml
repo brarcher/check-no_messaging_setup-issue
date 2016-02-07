@@ -25,3 +25,7 @@ script:
   - ./configure
   - make
   - make check
+  
+after_failure:
+  - cat tests/test-suite.log
+  - find . -iname "*.log" -print
