@@ -13,6 +13,10 @@ addons:
     packages:
       - texinfo
 
+before install:
+  - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then brew update ; fi
+  - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then brew install check; fi
+
 script:
   - autoreconf -i
   - ./configure
