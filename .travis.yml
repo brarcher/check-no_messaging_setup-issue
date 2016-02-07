@@ -19,6 +19,8 @@ before install:
   - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then brew install check; fi
 
 script:
+  - mkdir m4
+  - export ACLOCAL_PATH=/usr/local/share/aclocal
   - autoreconf -i
   - ./configure
   - make
