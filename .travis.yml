@@ -23,8 +23,6 @@ script:
   - sudo make install
   - sudo ldconfig
   - cd ..
-  - sed 's/check_pic/check/g' tests/Makefile.am | sed 's/-lrt//g' > tests/Makefile.am.tmp
-  - mv tests/Makefile.am.tmp tests/Makefile.am
   - mkdir m4
   - export ACLOCAL_PATH=/usr/local/share/aclocal
   - autoreconf -i
