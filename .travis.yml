@@ -17,6 +17,7 @@ addons:
 script:
   - git clone https://github.com/libcheck/check.git 
   - cd check 
+  - git checkout 0.10.0
   - autoreconf -i -v -f
   - ./configure
   - make -j24
