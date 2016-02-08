@@ -24,8 +24,8 @@ script:
   - sudo make install
   - sudo ldconfig
   - cd ..
-  - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then sed 's/check_pic/check/g' tests/Makefile.am | sed 's/-lrt//g' > tests/Makefile.am.tmp; fi
-  - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then mv tests/Makefile.am.tmp tests/Makefile.am; fi
+  - sed 's/check_pic/check/g' tests/Makefile.am | sed 's/-lrt//g' > tests/Makefile.am.tmp
+  - mv tests/Makefile.am.tmp tests/Makefile.am
   - mkdir m4
   - export ACLOCAL_PATH=/usr/local/share/aclocal
   - autoreconf -i
